@@ -1,0 +1,44 @@
+Library= {} 
+books =[] 
+costs = [] 
+N = int(input("Enter No. of Books in Library:")) 
+for item in range(0,N): 
+  book = input("Enter the name of Book:") 
+  cost = int(input("Enter cost of Book:")) 
+  Library.update({book:cost}) 
+  books.append(book) 
+  costs.append(cost) 
+for (i,j) in zip(books, costs): 
+  print("The library contains book ={} and its cost={}".format(i,j)) 
+
+def delduplicates(): 
+  for i in Library.items(): 
+    print("The library contains",i) 
+
+def arrange(): 
+  sorted_library = sorted(Library.items(), key=lambda x:x[1]) 
+  print("The books are ascending order of their cost is :") 
+  for i in sorted_library: 
+    print(i)
+    
+def count_books(): 
+  C = [] 
+  count = 0 
+  for (i,j) in zip(books,costs): 
+    if j>500 in costs: 
+      C.append((i,j)) 
+      count = count + 1 
+  print("Books having cost more then 500 are:", C) 
+  print("Number of books having cost more than 500 is",count) 
+
+def below500(): 
+  Z = [] 
+  for (i,j) in zip(books,costs): 
+    if j<=500 in costs: 
+      Z.append((i,j)) 
+  print("Books having cost less 500 are:", Z) 
+ 
+delduplicates() 
+arrange() 
+count_books() 
+below500()
